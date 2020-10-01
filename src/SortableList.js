@@ -32,7 +32,7 @@ export default class SortableList extends Component {
     manuallyActivateRows: PropTypes.bool,
     keyboardShouldPersistTaps: PropTypes.oneOf(['never', 'always', 'handled']),
     scrollEventThrottle: PropTypes.number,
-    decelerationRate: PropTypes.oneOf([PropTypes.string, PropTypes.number]),
+    decelerationRate: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     pagingEnabled: PropTypes.bool,
     nestedScrollEnabled: PropTypes.bool,
     disableIntervalMomentum: PropTypes.bool,
@@ -152,9 +152,9 @@ export default class SortableList extends Component {
     if (data && prevData && !shallowEqual(data, prevData)) {
       this._onUpdateLayouts();
     }
-    if (prevProps.scrollEnabled !== scrollEnabled) {
-      this.setState({scrollEnabled: prevProps.scrollEnabled})
-    }
+    // if (prevProps.scrollEnabled !== scrollEnabled) {
+    //   this.setState({scrollEnabled: prevProps.scrollEnabled})
+    // }
   }
 
   scrollBy({dx = 0, dy = 0, animated = false}) {
